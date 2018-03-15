@@ -1,0 +1,36 @@
+<?php
+
+interface televisaoInterface
+{
+	public function aumentarVolume();
+	public function diminuirVolume();
+	public function ligar();
+	public function desligar();
+	public function trocarCanal($canal);
+}
+class TV implements televisaoInterface
+{
+	public $volume = 10;
+	public $canal = 5;
+	public $estado = false;
+
+	public function aumentarVolume(){
+		$this->volume++;
+	}
+	public function diminuirVolume(){
+		$this->volume--;
+	}
+	public function ligar(){
+		$this->estado = true;
+	}
+	public function desligar(){
+		$this->estado = false;
+	}
+	public function trocarCanal($canal){
+		$this->canal = $canal;
+	}
+}
+echo "<pre>";
+$tv = new TV();
+print_r($tv);
+echo "<hr>";
